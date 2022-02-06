@@ -1,6 +1,9 @@
 class Ampel
 {
   private String zustand;
+  private int x;
+  private int y;
+  
   // Bild für die Anzeige
   PImage ampel_rot = loadImage("ampel_rot.jpg");
   PImage ampel_gelb = loadImage("ampel_gelb.jpg");
@@ -9,9 +12,11 @@ class Ampel
  
   int timer;
   
-  Ampel()
+  Ampel(int x_, int y_, String zustand_)
   {
-    zustand = "gruen";
+    x = x_;
+    y = y_;
+    zustand = zustand_;
     timer = 100;
   }
   
@@ -29,19 +34,19 @@ class Ampel
   {
     if (zustand.equals("rot"))
     {
-    image(ampel_rot,0,0);
+    image(ampel_rot,x,y,50,120);
     }
     if (zustand.equals("rot_gelb"))
     {
-     image(ampel_rot_gelb,0,0);
+     image(ampel_rot_gelb,x,y,50,120);
     }
     if (zustand.equals("gelb"))
     {
-    image(ampel_gelb,0,0);
+    image(ampel_gelb,x,y,50,120);
     }
     if (zustand.equals("gruen"))
     {
-     image(ampel_gruen,0,0);
+     image(ampel_gruen,x,y,50,120);
     }
   }
   
